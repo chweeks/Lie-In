@@ -5,8 +5,8 @@ var actions = require('./actions.js');
 var App = React.createClass({
   getInitialState: function () {
     return {
-      messages: Store.getMessages(),
-      newMessage: ''
+      times: Store.getTimes(),
+      newAddress: ''
     };
   },
   componentWillMount: function () {
@@ -17,32 +17,27 @@ var App = React.createClass({
   },
   changeState: function () {
     this.setState({
-      messages: Store.getMessages()
+      times: Store.getTimes()
     });
   },
-  addMessage: function (event) {
+  calculateTime: function (event) {
     event.preventDefault();
-    var input = this.refs.newMessage.getDOMNode();
-    actions.addMessage(input.value);
+    var input = this.refs.newAddress.getDOMNode();
+    actions.calculateTime(input.value);
     this.setState({
-      newMessage: ''
+      newAddress: ''
     });
   },
-  updateNewMessage: function (event) {
+  updateNewAddress: function (event) {
     this.setState({
-      newMessage: event.target.value
+      newAddress: event.target.value
     });
-  },
-  renderMessages: function (message) {
-    return (
-      <div>{message}</div>
-    );
   },
 	render: function() {
 		return (
 			<div>
-        <form onSubmit={this.addMessage}>
-          <input ref="newMessage" type="text" value={this.state.newMessage} onChange={this.updateNewMessage}/>
+        <form onSubmit={this.calculateTime}>
+          <input ref="newMessage" type="text" value={this.state.newAddress} onChange={this.updateNewAddress}/>
         </form>
       </div>
 		);

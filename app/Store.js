@@ -2,17 +2,18 @@ var flux = require('flux-react');
 var actions = require('./actions.js');
 
 module.exports = flux.createStore({
-  messages: [],
+  times: [],
   actions: [
-    actions.addMessage
+    actions.calculatTime;
   ],
-  addMessage: function (message) {
-    this.messages.push(message);
-    this.emitChange();
-  },
+
   exports: {
-    getMessages: function () {
-      return this.messages;
+    calculateTime: function (address) {
+
+    },
+
+    getTimes: function () {
+      return this.times;
     }
   }
 });
