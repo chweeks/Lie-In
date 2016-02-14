@@ -19,7 +19,8 @@ var livereload = require('gulp-livereload');
 var dependencies = [
 	'react',
   'react/addons',
-  'flux-react'
+  'flux-react',
+	'jquery',
 ];
 
 var browserifyTask = function (options) {

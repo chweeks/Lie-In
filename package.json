@@ -23,6 +23,7 @@
   },
   "dependencies": {
     "flux-react": "^2.6.6",
+    "jquery": "^2.2.0",
     "react": "^0.14.x",
     "react-dom": "^0.14.x"
   }

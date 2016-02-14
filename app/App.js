@@ -22,7 +22,7 @@ var App = React.createClass({
   },
   calculateTime: function (event) {
     event.preventDefault();
-    var input = this.refs.newAddress.getDOMNode();
+    var input = this.refs.newAddress;
     actions.calculateTime(input.value);
     this.setState({
       newAddress: ''
@@ -37,7 +37,7 @@ var App = React.createClass({
 		return (
 			<div>
         <form onSubmit={this.calculateTime}>
-          <input ref="newMessage" type="text" value={this.state.newAddress} onChange={this.updateNewAddress}/>
+          <input ref="newAddress" type="text" value={this.state.newAddress} onChange={this.updateNewAddress}/>
         </form>
       </div>
 		);
