@@ -11,23 +11,24 @@ module.exports = flux.createStore({
   ],
 
   calculateTime: function (address) {
-    
+    console.log(this.currentPosition());
   },
+
+  currentPosition: function () {
+    var self = this;
+    navigator.geolocation.getCurrentPosition(GetLocation);
+    function GetLocation(location) {
+      self.position = (location.coords.latitude).toString()+'&2C'+(location.coords.longitude).toString();
+    }
+    return self.position;
+  },
+
 
   citymapperRequest: function (startCoord, endCoord, time) {
     return $.getJSON(apiUrl+startCoord+'&endCoord='+endcoord+'time='+time+'time_type=arrival&key='+apiKey)
     .then(function(data) {
       return data;
     });
-  },
-
-  currentLocation: function () {
-    self = this;
-    navigator.geolocation.getCurrentPosition(GetLocation);
-    function GetLocation(location) {
-      self.position = (location.coords.latitude).toString()+'&2C'+(location.coords.longitude).toString();
-    }
-    return self.position;
   },
 
   exports: {
