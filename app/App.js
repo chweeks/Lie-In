@@ -39,6 +39,7 @@ var App = React.createClass({
         <form onSubmit={this.calculateTime}>
           <input ref="newAddress" type="text" value={this.state.newAddress} onChange={this.updateNewAddress}/>
         </form>
+        <p>{this.state.position}</p>
       </div>
 		);
 	}
